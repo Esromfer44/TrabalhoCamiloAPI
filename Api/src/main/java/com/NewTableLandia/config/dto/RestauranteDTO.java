@@ -1,4 +1,4 @@
-package com.NewTableLandia.Api.model;
+package com.NewTableLandia.config.dto;
 
 public class RestauranteDTO {
 
@@ -17,26 +17,6 @@ public class RestauranteDTO {
         this.endereco = endereco;
         this.tipoCozinha = tipoCozinha;
         this.capacidadeMesas = capacidadeMesas;
-    }
-
-    public static RestauranteDTO fromEntity(Restaurante restaurante) {
-        RestauranteDTO restauranteDTO = new RestauranteDTO();
-        restauranteDTO.setId(restaurante.getId());
-        restauranteDTO.setNome(restaurante.getNome());
-        restauranteDTO.setEndereco(restaurante.getEndereco());
-        restauranteDTO.setTipoCozinha(restaurante.getTipoCozinha());
-        restauranteDTO.setCapacidadeMesas(restaurante.getCapacidadeMesas());
-        return restauranteDTO;
-    }
-
-    public static Restaurante toEntity(RestauranteDTO restauranteDTO) {
-        Restaurante restaurante = new Restaurante();
-        restaurante.setId(restauranteDTO.getId());
-        restaurante.setNome(restauranteDTO.getNome());
-        restaurante.setEndereco(restauranteDTO.getEndereco());
-        restaurante.setTipoCozinha(restauranteDTO.getTipoCozinha());
-        restaurante.setCapacidadeMesas(restauranteDTO.getCapacidadeMesas());
-        return restaurante;
     }
 
     public Long getId() {

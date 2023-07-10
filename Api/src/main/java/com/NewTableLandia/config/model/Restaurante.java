@@ -1,7 +1,10 @@
-package com.NewTableLandia.Api.model;
+package com.NewTableLandia.config.model;
 
+import com.NewTableLandia.config.dto.RestauranteDTO;
+import com.NewTableLandia.config.mapper.DozerMapper;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,8 +30,13 @@ public class Restaurante {
     )
     private Set<Mesa> mesas = new HashSet<>();
 
-    @OneToMany(mappedBy = "restaurante")
-    private Collection<Cliente> clientes;
+    @ManyToMany
+    @JoinTable(
+            name = "restaurante_clientes",
+            joinColumns = @JoinColumn(name = "restaurante_id"),
+            inverseJoinColumns = @JoinColumn(name = "cliente_id")
+    )
+    private Collection<Cliente> clientes = new ArrayList<>();
 
     public Restaurante() {
     }
@@ -48,6 +56,14 @@ public class Restaurante {
     public void removerMesa(Mesa mesa) {
         mesas.remove(mesa);
         mesa.getRestaurantes().remove(this);
+    }
+
+    public RestauranteDTO toDTO() {
+        return DozerMapper.parseObject(this, RestauranteDTO.class);
+    }
+
+    public static Restaurante fromDTO(RestauranteDTO restauranteDTO) {
+        return DozerMapper.parseObject(restauranteDTO, Restaurante.class);
     }
 
     public Long getId() {

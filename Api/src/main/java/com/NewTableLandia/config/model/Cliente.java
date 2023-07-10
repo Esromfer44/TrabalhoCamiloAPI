@@ -1,4 +1,4 @@
-package com.NewTableLandia.Api.model;
+package com.NewTableLandia.config.model;
 
 import jakarta.persistence.*;
 import java.util.HashSet;
@@ -13,8 +13,6 @@ public class Cliente {
     private Long id;
 
     private String nome;
-
-    // outros atributos
 
     @ManyToMany(mappedBy = "clientes")
     private Set<Restaurante> restaurantes = new HashSet<>();
@@ -47,6 +45,7 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public Set<Restaurante> getRestaurantes() {
         return restaurantes;
     }

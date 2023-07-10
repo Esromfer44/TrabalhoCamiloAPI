@@ -1,7 +1,9 @@
-package com.NewTableLandia.Api.service;
+package com.NewTableLandia.config.service;
 
-import com.NewTableLandia.Api.model.Restaurante;
-import com.NewTableLandia.Api.repository.RestauranteRepository;
+import com.NewTableLandia.config.dto.RestauranteDTO;
+import com.NewTableLandia.config.mapper.DozerMapper;
+import com.NewTableLandia.config.model.Restaurante;
+import com.NewTableLandia.config.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,6 @@ import java.util.Optional;
 
 @Service
 public class RestauranteService {
-
     private final RestauranteRepository restauranteRepository;
 
     @Autowired

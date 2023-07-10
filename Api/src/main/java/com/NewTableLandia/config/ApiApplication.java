@@ -1,4 +1,4 @@
-package com.NewTableLandia.Api;
+package com.NewTableLandia.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
